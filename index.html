@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>研究用ページ</title>
+</head>
+<body>
+
+<h1>研究参加ページ</h1>
+<p>以下のボタンを押すと、無作為に研究条件へ割り当てられます。</p>
+
+<button onclick="randomAssign()">研究を開始する</button>
+
+<script>
+function randomAssign() {
+  const r = Math.random();
+  if (r < 0.5) {
+    window.location.href = "intervention.html";
+  } else {
+    window.location.href = "control.html";
+  }
+}
+</script>
+
+</body>
+</html>
