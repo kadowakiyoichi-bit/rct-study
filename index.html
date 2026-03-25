@@ -2,22 +2,31 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>研究用ページ</title>
+  <title>研究用ページ（ランダム割付）</title>
 </head>
 <body>
 
 <h1>研究参加ページ</h1>
-<p>以下のボタンを押すと、無作為に研究条件へ割り当てられます。</p>
+
+<p>
+研究へのご協力ありがとうございます。<br>
+下のボタンを押すと、無作為に研究条件へ割り当てられます。
+</p>
 
 <button onclick="randomAssign()">研究を開始する</button>
 
 <script>
 function randomAssign() {
   const r = Math.random();
+
   if (r < 0.5) {
-    window.location.href = "intervention.html";
+    // INTERVENTION PRE TEST
+    window.location.href =
+      "https://docs.google.com/forms/d/e/1FAIpQLSdDGHMge4CvfgJsQpGjAub6JkvD2CWD_ua-jAKmJI-Gwb0m2g/viewform?usp=publish-editor";
   } else {
-    window.location.href = "control.html";
+    // CONTROL PRE TEST
+    window.location.href =
+      "https://docs.google.com/forms/d/e/1FAIpQLScn1HZMaX_NhiYpZxGcv36mUd1EweRtFRYZzg6sO6-MA85-Uw/viewform?usp=dialog";
   }
 }
 </script>
