@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang=
 <head>
   <meta charset="UTF-8">
   <title>研究用ページ（ランダム割付）</title>
 </head>
+
 <body>
 
 <h1>研究参加ページ</h1>
@@ -32,17 +33,28 @@ box-shadow:0 4px 8px rgba(0,0,0,0.2);
 
 <script>
 function randomAssign() {
-  const r = Math.random();
 
-  if (r < 0.5) {
-    // INTERVENTION PRE TEST
-    window.location.href =
-      "https://kadowakiyoichi-bit.github.io/rct-study/intervention.html";
-  } else {
-    // CONTROL PRE TEST
-    window.location.href =
-      "https://kadowakiyoichi-bit.github.io/rct-study/control.html";
+  // 以前の割付結果を確認
+  let group = localStorage.getItem("assignedGroup");
+
+  // 保存済みなら同じ群へ移動
+  if (group) {
+    window.location.href = group;
+    return;
   }
+
+  // 初回のみランダム割付
+  if (Math.random() < 0.5) {
+    group = "https://kadowakiyoichi-bit.github.io/rct-study/intervention.html";
+  } else {
+    group = "https://kadowakiyoichi-bit.github.io/rct-study/control.html";
+  }
+
+  // 結果を保存
+  localStorage.setItem("assignedGroup", group);
+
+  // 移動
+  window.location.href = group;
 }
 </script>
 
